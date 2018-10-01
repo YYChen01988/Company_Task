@@ -29,7 +29,7 @@ public class Employee {
     }
 
     public double payBonus(){
-        Double bonus = salary/100;
+        Double bonus = salary*0.01;
         return bonus;
     }
 }
