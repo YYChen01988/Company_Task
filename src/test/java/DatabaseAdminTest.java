@@ -2,7 +2,8 @@ import Staff.TechStaff.DatabaseAdmin;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 public class DatabaseAdminTest {
 
@@ -25,19 +26,25 @@ public class DatabaseAdminTest {
 
     @Test
     public void getSalary() {
-        assertEquals(2000.0,databaseAdmin.getSalary());
+        assertEquals(2000.0,databaseAdmin.getSalary(), 0);
     }
 
 
     @Test
     public void canRaiseSalary() {
         databaseAdmin.raiseSalary(50.0);
-        assertEquals(2050.0, databaseAdmin.getSalary());
+        assertEquals(2050.0, databaseAdmin.getSalary(),0);
     }
 
     @Test
     public void canGetBonus() {
         databaseAdmin.payBonus();
-        assertEquals(20.0, databaseAdmin.payBonus());
+        assertEquals(20.0, databaseAdmin.payBonus(),0);
+    }
+
+    @Test
+    public void canChangeName() {
+        databaseAdmin.changeName("Dave");
+        assertEquals("Dave", databaseAdmin.getName());
     }
 }

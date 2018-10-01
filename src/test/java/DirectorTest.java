@@ -2,7 +2,8 @@ import Staff.Management.Director;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 public class DirectorTest {
 
@@ -25,7 +26,7 @@ public class DirectorTest {
 
     @Test
     public void getSalary() {
-        assertEquals(2000.0,director.getSalary());
+        assertEquals(2000.0,director.getSalary(), 0);
     }
 
     @Test
@@ -36,17 +37,23 @@ public class DirectorTest {
     @Test
     public void canRaiseSalary() {
         director.raiseSalary(100.0);
-        assertEquals(2100.0, director.getSalary());
+        assertEquals(2100.0, director.getSalary(), 0);
     }
 
     @Test
     public void canGetBonus() {
         director.payBonus();
-        assertEquals(20.0, director.payBonus());
+        assertEquals(40.0, director.payBonus(), 0);
     }
 
     @Test
     public void canGetBudget() {
-        assertEquals(999999.0, director.getBudget());
+        assertEquals(999999.0, director.getBudget(),0);
+    }
+
+    @Test
+    public void canChangeName() {
+        director.changeName("Angie");
+        assertEquals("Angie", director.getName());
     }
 }
